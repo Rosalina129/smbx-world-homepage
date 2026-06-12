@@ -471,7 +471,17 @@ li {
 }
 
 #screens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  max-width: 649px;
   margin: auto;
+  margin-bottom: 0.8em;
+}
+
+#screens a {
+  line-height: 0;
 }
 
 #screens img {
