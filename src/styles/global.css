@@ -802,6 +802,7 @@ iframe {
 .footer-left {
   background-color: #64aaff;
   border-top: solid 2px #000000;
+  border-left: solid 2px #000000;
   border-right: solid 2px #000000;
   float: left;
   font-size: 8pt;
@@ -813,6 +814,7 @@ iframe {
   background-color: #64aaff;
   border-top: solid 2px #000000;
   border-left: solid 2px #000000;
+  border-right: solid 2px #000000;
   float: right;
   font-size: 8pt;
   padding-left: 2px;
