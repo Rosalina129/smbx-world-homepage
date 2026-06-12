@@ -553,7 +553,7 @@ li {
 }
 
 .link-footer-1 {
-  display: block;
+  display: inline-block;
   height: 20px;
   padding-top: 10px;
   text-align: center;
@@ -781,6 +781,7 @@ iframe {
 
 .footer-image {
   margin: auto;
+  margin-bottom: -32px;
 }
 
 .footer-left {
@@ -832,6 +833,31 @@ iframe {
   background-position: bottom left;
 }
 
+/* Top clouds - floating animation */
+.topclouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-image: url('/images/assets/topclouds.png');
+  background-repeat: repeat-x;
+  background-position: left top;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+  animation: clouds-scroll 45s linear infinite;
+}
+
+@keyframes clouds-scroll {
+  0% {
+    background-position: 0 top;
+  }
+  100% {
+    background-position: 1840px top;
+  }
+}
+
 .top-bg {
   position: absolute;
   bottom: 0;
@@ -843,6 +869,16 @@ iframe {
   z-index: -2;
   pointer-events: none;
   background-image: url('/images/assets/top.png');
+  animation: bg-scroll-slow 240s linear infinite;
+}
+
+@keyframes bg-scroll-slow {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: 4096px bottom;
+  }
 }
 
 /* Default theme: bg.png */
@@ -860,6 +896,10 @@ iframe {
 }
 
 /* Desert theme: bg-desert.png */
+.theme-desert .topclouds {
+  background-image: url('/images/assets/topclouds-desert.png');
+}
+
 .theme-desert .top-bg {
   background-image: url('/images/assets/top-desert.png');
 }
@@ -869,6 +909,10 @@ iframe {
 }
 
 /* Ice theme: bg-ice1 + bg-ice-2 (scrolling) + bg-ice-3 */
+.theme-ice .topclouds {
+  background-image: url('/images/assets/topclouds-ice.png');
+}
+
 .theme-ice .top-bg {
   background-image: url('/images/assets/top-ice.png');
 }
@@ -893,10 +937,10 @@ iframe {
 
 @keyframes bg-scroll {
   0% {
-    background-position: 512px bottom;
+    background-position: 0 bottom;
   }
   100% {
-    background-position: 0 bottom;
+    background-position: 512px bottom;
   }
 }
 
@@ -1262,51 +1306,48 @@ iframe {
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  border: 3px solid #000;
+  justify-content: center;
+  width: 96px;
+  height: 40px;
+  background-image: url('/images/assets/buttons.png');
+  background-size: 96px 160px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
   font-family: "Microsoft YaHei", monospace;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-  box-shadow:
-    inset -3px -3px 0 rgba(0, 0, 0, 0.25),
-    inset 3px 3px 0 rgba(255, 255, 255, 0.25);
   transition: transform 0.1s;
+  cursor: pointer;
 }
 
 .download-btn:hover {
-  box-shadow:
-    inset -3px -3px 0 rgba(0, 0, 0, 0.25),
-    inset 3px 3px 0 rgba(255, 255, 255, 0.25);
+  filter: brightness(1.1);
   color: #fff;
 }
 
 .download-btn:active {
   transform: translateY(2px);
-  box-shadow:
-    inset -3px -3px 0 rgba(0, 0, 0, 0.25),
-    inset 3px 3px 0 rgba(255, 255, 255, 0.25);
 }
 
 .btn-icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
 }
 
 .btn-legacy {
-  background-color: #ff3333;
+  background-position: 0 0;
 }
 
 .btn-38a {
-  background-color: #59c538;
+  background-position: 0 -40px;
 }
 
 .btn-x2 {
-  background-color: #ffcc33;
+  background-position: 0 -80px;
   color: #333;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
 }
@@ -1316,12 +1357,16 @@ iframe {
 }
 
 .btn-xtech {
-  background-color: #438bff;
+  width: 128px;
+  background-image: url('/images/assets/button-b.png');
+  background-size: 128px 40px;
+  background-position: 0 0;
 }
 
 .download-btn.active {
-  outline-offset: -3px;
   filter: brightness(1.2);
+  outline: 2px solid #fff;
+  outline-offset: -5px;
 }
 
 /* ========================================================================== */
@@ -1415,6 +1460,24 @@ body.theme-ice {
 
 .theme-ice #footer {
   background-image: url('/images/assets/footer-ice.png');
+  background-repeat: repeat-x;
+  position: relative;
+}
+
+.theme-ice .footer-fore {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-image: url('/images/assets/footer-ice-fore.png');
+  background-repeat: repeat-x;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.theme-ice #link-nextpage {
+  z-index: 3;
 }
 
 .theme-ice .footer-left,
