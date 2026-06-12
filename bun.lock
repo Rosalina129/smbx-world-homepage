@@ -4,7 +4,7 @@
   "workspaces": {
     "": {
       "name": "smbx-world-homepage",
-      "dependencies": {
+      "devDependencies": {
         "astro": "^6.4.6",
       },
     },
