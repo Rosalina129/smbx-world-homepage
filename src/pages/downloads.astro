@@ -138,25 +138,15 @@ import BlockBox from '../components/BlockBox.astro';
             </div>
             <p class="dl-note">注：手机端需下载资源包才可正常运行，可以前往该网站下载：<a href="https://github.com/TheXTech/TheXTech/wiki/Game-assets-packages" target="_blank" rel="noopener noreferrer">GitHub</a>，也可以点击上方链接。<br>
             以上链接为访问官网下载速度慢的用户准备的备用链接。</p>
-            <!-- <h2>游戏截图</h2>
+            <h2>游戏截图</h2>
             <div id="screens">
-              <a href="/images/screenshots/smbx-1.png" data-lightbox="screenshots"><img src="/images/screenshots/smbx-1.png" /></a>
-              <a href="/images/screenshots/smbx-2.gif" data-lightbox="screenshots"><img src="/images/screenshots/smbx-2.gif" /></a>
-              <a href="/images/screenshots/a2xt-ep1-1.png" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-1.png" /></a>
-              <a href="/images/screenshots/a2xt-ep1-2.gif" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-2.gif" /></a>
-              <a href="/images/screenshots/a2xt-ep1-3.gif" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-3.gif" /></a>
-              <a href="/images/screenshots/a2xt-ep1-4.gif" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-4.gif" /></a>
-              <a href="/images/screenshots/a2xt-ep1-5.gif" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-5.gif" /></a>
-              <a href="/images/screenshots/a2xt-ep1-6.gif" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-6.gif" /></a>
-              <a href="/images/screenshots/a2xt-ep1-7.gif" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-7.gif" /></a> 
-              <a href="/images/screenshots/aod-1.png" data-lightbox="screenshots"><img src="/images/screenshots/aod-1.png" /></a>
-              <a href="/images/screenshots/aod-2.png" data-lightbox="screenshots"><img src="/images/screenshots/aod-2.png" /></a>
-              <a href="/images/screenshots/demo-transits.gif" data-lightbox="screenshots"><img src="/images/screenshots/demo-transits.gif" /></a>
-              <a href="/images/screenshots/lcbeta-1.png" data-lightbox="screenshots"><img src="/images/screenshots/lcbeta-1.png" /></a>
-              <a href="/images/screenshots/lcbeta-2.png" data-lightbox="screenshots"><img src="/images/screenshots/lcbeta-2.png" /></a>
-              <a href="/images/screenshots/lcbeta-3.gif" data-lightbox="screenshots"><img src="/images/screenshots/lcbeta-3.gif" /></a>
-              <a href="/images/screenshots/lcbeta-4.gif" data-lightbox="screenshots"><img src="/images/screenshots/lcbeta-4.gif" /></a>
-            </div>-->
+              <a href="/images/screenshots/smbx-1.webp" data-lightbox="screenshots"><img src="/images/screenshots/smbx-1.webp" /></a>
+              <a href="/images/screenshots/a2xt-ep1-1.webp" data-lightbox="screenshots"><img src="/images/screenshots/a2xt-ep1-1.webp" /></a>
+              <a href="/images/screenshots/aod-1.webp" data-lightbox="screenshots"><img src="/images/screenshots/aod-1.webp" /></a>
+              <a href="/images/screenshots/aod-2.webp" data-lightbox="screenshots"><img src="/images/screenshots/aod-2.webp" /></a>
+              <a href="/images/screenshots/lcbeta-1.webp" data-lightbox="screenshots"><img src="/images/screenshots/lcbeta-1.webp" /></a>
+              <a href="/images/screenshots/lcbeta-2.webp" data-lightbox="screenshots"><img src="/images/screenshots/lcbeta-2.webp" /></a>
+            </div>
           </div>
 
           <h3>Q&A</h3>
@@ -207,29 +197,5 @@ import BlockBox from '../components/BlockBox.astro';
 
     // Default: show legacy
     switchVersion('legacy');
-
-    // Freeze GIF thumbnails to first frame
-    document.querySelectorAll<HTMLImageElement>('#screens img').forEach(img => {
-      if (!img.src.endsWith('.gif')) return;
-      const freeze = () => {
-        if (!img.naturalWidth) return;
-        const canvas = document.createElement('canvas');
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-          ctx.drawImage(img, 0, 0);
-          img.dataset.gifSrc = img.src;
-          img.src = canvas.toDataURL();
-        }
-      };
-      if (img.complete && img.naturalWidth > 0) {
-        freeze();
-      } else {
-        img.decode().then(freeze).catch(() => {
-          img.addEventListener('load', freeze, { once: true });
-        });
-      }
-    });
   </script>
 </BaseLayout>
