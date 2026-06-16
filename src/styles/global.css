@@ -1331,7 +1331,6 @@ iframe {
   background-image: url('/images/assets/buttons.png');
   background-size: 96px 160px;
   background-repeat: no-repeat;
-  image-rendering: pixelated;
   font-family: "Microsoft YaHei", monospace;
   font-size: 16px;
   font-weight: bold;
@@ -1395,7 +1394,6 @@ iframe {
   height: 40px;
   padding: 0 8px;
   background-image: none;
-  image-rendering: pixelated;
   font-size: 14px;
   margin: 4px 6px 4px 0;
   border-style: solid;
