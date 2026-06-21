@@ -865,7 +865,7 @@ iframe {
   z-index: -1;
   pointer-events: none;
   opacity: 0.7;
-  animation: clouds-scroll 45s linear infinite;
+  animation: clouds-scroll 40s linear infinite;
 }
 
 @keyframes clouds-scroll {
